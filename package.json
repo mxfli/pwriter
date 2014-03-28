@@ -1,0 +1,39 @@
+{
+  "name": "pwriter",
+  "version": "0.1.0",
+  "description": "Personal Writer",
+  "main": "lib/index.js",
+  "dependencies": {
+    "koa": "~0.5.2"
+  },
+  "devDependencies": {
+    "mocha":"1.18.*",
+    "should":"3.2",
+    "chai":"*",
+    "jstrace":"*",
+    "blanket":"*"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mxfli/pwriter"
+  },
+  "keywords": [
+    "writer",
+    "blog",
+    "article",
+    "twitte",
+    "notes"
+  ],
+  "author": "Inaction",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mxfli/pwriter/issues"
+  },
+  "homepage": "https://github.com/mxfli/pwriter",
+  "engines": {
+    "node": ">= 0.11.9"
+  }
+}
