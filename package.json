@@ -1,24 +1,32 @@
 {
   "name": "pwriter",
   "version": "0.1.0",
-  "description": "Personal Writer",
+  "description": "Personal Write center",
   "main": "lib/index.js",
   "dependencies": {
-    "koa": "~0.5.2"
+    "co":"*",
+    "co-fs":"^1.2.0",
+    "co-request":"*",
+    "koa": "^0.13.x",
+    "koa-static": "^1.4.0",
+    "koa-middlewares": "*",
+    "koa-error": "^1.1.2",
+    "remarkable": "^1.4.0",
+    "markdown": "*"
   },
   "devDependencies": {
-    "mocha":"1.18.*",
-    "should":"3.2",
-    "chai":"*",
-    "jstrace":"*",
-    "blanket":"*"
+    "mocha": "^1.18.*",
+    "should": "^3.2",
+    "chai": "*",
+    "jstrace": "*",
+    "blanket": "*"
   },
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mxfli/pwriter"
+    "url": "https://github.com/mxfli/pwriter.git"
   },
   "keywords": [
     "writer",
@@ -35,5 +43,13 @@
   "homepage": "https://github.com/mxfli/pwriter",
   "engines": {
     "node": ">= 0.11.9"
+  },
+  "bin": {
+    "pwriter": "create.js"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
   }
 }
