@@ -5,7 +5,7 @@ pwriter
 
 Personal Writer
 
-##Features
+## Features
 * Basic: blog, twitter/mico-blog, notes
 * Mutil-template and time-line.
 * simple text formated document: markdown
@@ -17,5 +17,12 @@ Personal Writer
 * mutil-users
 * Keeping template versions.
 
-##License
+## Requirements copyed from inaction.me
+- Evevery page is a markdown fromat document.
+- Not use database. every things in dist or memory.
+- Use simply text style for the site.
+- each post can use diffents style.
+- no dependes to other framework
+
+## License
 MIT
