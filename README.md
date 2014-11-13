@@ -24,5 +24,12 @@ Personal Writer
 - each post can use diffents style.
 - no dependes to other framework
 
+## Change list
+
+### v0.1.1
+* Convert markdown files to html by `remarkable`
+* node >= 0.11.9, runtime use `node --harmony` 
+* Add basic test.
+
 ## License
 MIT
