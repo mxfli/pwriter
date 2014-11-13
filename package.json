@@ -4,15 +4,16 @@
   "description": "Personal Write center",
   "main": "lib/index.js",
   "dependencies": {
-    "co":"*",
-    "co-fs":"^1.2.0",
-    "co-request":"*",
+    "co": "*",
+    "co-fs": "^1.2.0",
+    "co-request": "*",
+    "jst": "^0.0.13",
     "koa": "^0.13.x",
-    "koa-static": "^1.4.0",
-    "koa-middlewares": "*",
     "koa-error": "^1.1.2",
+    "koa-middlewares": "^1.5.0",
+    "koa-static": "^1.4.0",
     "remarkable": "^1.4.0",
-    "markdown": "*"
+    "thunkify-wrap": "^1.0.4"
   },
   "devDependencies": {
     "mocha": "^1.18.*",
@@ -43,9 +44,6 @@
   "homepage": "https://github.com/mxfli/pwriter",
   "engines": {
     "node": ">= 0.11.9"
-  },
-  "bin": {
-    "pwriter": "create.js"
   },
   "directories": {
     "doc": "docs",
