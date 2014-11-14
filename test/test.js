@@ -7,11 +7,12 @@ var pWriter = require('..');
 var co = require('co');
 var fs = require('co-fs');
 var assert = require('assert');
+var thunkify = require('thunkify-wrap');
 
 var prePath = function * (pathstr) {
-  "use strict";
   if (!(yield fs.exists(pathstr))) {
-    yield prePath(path.baseFileName(pathstr));
+    yield prePath(path.dirname(pathstr));
+    yield fs.mkdir(pathstr);
   }
 };
 
@@ -36,20 +37,27 @@ describe('pwriter:', function () {
 
       assert(yield fs.exists(templatePath));
       assert(yield fs.exists(outputPath));
-
-      try {
-       pWriter.render(markdownPath, templatePath, outputPath,function *(){
-         console.log('Hello');
-         var exists = yield fs.exists(path.join(baseDir, outputPath, 'index.html'));
-
-         assert(exists === true, 'index.html file not exists');
-
-       });
-      } catch (e) {
-        throw e;
+      var exists = yield fs.exists(path.join(outputPath, 'index.html'));
+      if (exists) {
+        yield fs.unlink(path.join(outputPath, 'index.html'));
       }
+      //exists = yield fs.exists(path.join(outputPath, 'index.html'));
+      //assert(exists === false, 'index.html file must be not exists');
 
+      pWriter.thunkfyRender = thunkify(pWriter.render);
+
+      yield pWriter.thunkfyRender(markdownPath, templatePath, outputPath);
+
+      exists = yield fs.exists(path.join(outputPath, 'index.html'));
+
+      assert(exists === true, 'index.html file not exists');
     })(done);
 
+  });
+
+  it('should exists of rendered index.html', function (down) {
+    co(function* () {
+      assert(yield fs.exists(path.join(__dirname, '../run/www/index.html')));
+    })(down);
   });
 });
